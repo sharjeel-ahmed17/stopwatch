@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background-image: url("https://cdn.pixabay.com/photo/2018/03/13/11/26/clock-3222267_1280.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        .container {
+            background: red;
+            padding: 30px;
+
+            border-radius: 20px;
+
+            box-shadow: inset 0px -4px 12px 5px black;
+
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 41px;
+            margin: 20px;
+            font-size: 25px;
+            color: white;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .buttons>button {
+            padding: 10px 15px;
+            border: none;
+            background: green;
+            border-radius: 12px;
+            transition: color;
+        }
+
+        .buttons>button:hover {
+            padding: 10px 15px;
+            border: none;
+            background: black;
+            border-radius: 12px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="logo">
+            <img src="https://www.astopwatch.co.uk/content/products/fastime-1-stopwatch-3-0-l.png" alt="" width="200">
+        </div>
+        <div class="timer">
+            <p id="minute"> 0 : </p>
+            <p id="second"> 0 : </p>
+            <p id="milisecond"> 0</p>
+        </div>
+        <div class="buttons">
+            <button id="start" onclick="startWatch()">Start</button>
+            <button id="stop1" onclick="stopWatch()">Stop</button>
+            <button id="reset" onclick="resetWatch()">Reset</button>
+        </div>
+    </div>
+    <script>
+
+
+
+        let minute = document.getElementById("minute");
+        let second = document.getElementById("second");
+        let miliSecond = document.getElementById("milisecond");
+        let start = document.getElementById("start");
+        let stop1 = document.getElementById("stop1");
+        let reset = document.getElementById("reset");
+
+        // console.log(miliSecond, minute, second, start, stop1, reset)
+
+
+
+
+
+
+
+
+
+
+        const startWatch = () => {
+
+
+            let sec = 0;
+            let milisec = 0;
+            let mit = 0;
+
+            let b = setInterval(() => {
+                minute.innerHTML = mit;
+                ++mit;
+            }, 6000);
+
+            let a = setInterval(() => {
+                second.innerHTML = sec;
+                ++sec;
+            }, 1000);
+
+
+
+            let c = setInterval(() => {
+                miliSecond.innerHTML = milisec;
+                ++milisec;
+            }, 100);
+
+
+
+            stopWatch = () => {
+                clearInterval(a)
+                clearInterval(b)
+                clearInterval(c)
+            }
+
+            resetWatch = () => {
+                minute.innerHTML = 0;
+                second.innerHTML = 0;
+                miliSecond.innerHTML = 0;
+                clearInterval(a)
+                clearInterval(b)
+                clearInterval(c)
+            }
+        }
+
+    </script>
+</body>
+
+</html>
